@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { createSupabaseAuthServer } from "@/lib/supabase-auth-server";
 import LogoutButton from "@/components/admin/LogoutButton";
+import AdminNavLinks from "@/components/admin/AdminNavLinks";
 
 export default async function DashboardLayout({
   children,
@@ -33,6 +34,12 @@ export default async function DashboardLayout({
           </div>
         </div>
       </header>
+      {/* Alt nav */}
+      <div className="bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-6 py-2">
+          <AdminNavLinks />
+        </div>
+      </div>
       <main className="max-w-7xl mx-auto px-6 py-8">{children}</main>
     </div>
   );

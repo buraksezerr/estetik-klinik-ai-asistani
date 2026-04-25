@@ -4,6 +4,7 @@ import { Phone, ArrowLeft, Calendar, FileText, Clock } from "lucide-react";
 import { supabaseServer } from "@/lib/supabase-server";
 import StatusUpdateForm from "@/components/admin/StatusUpdateForm";
 import NotesForm from "@/components/admin/NotesForm";
+import DeleteLeadButton from "@/components/admin/DeleteLeadButton";
 
 interface Lead {
   id: string;
@@ -232,6 +233,13 @@ export default async function LeadDetailPage({
                 <span className="text-base">💬</span>
                 WhatsApp&apos;tan Yaz
               </a>
+              <div className="pt-2 border-t border-slate-100">
+                <DeleteLeadButton
+                  leadId={typedLead.id}
+                  redirectAfter
+                  variant="full"
+                />
+              </div>
             </div>
           </div>
         </div>

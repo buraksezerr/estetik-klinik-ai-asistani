@@ -39,7 +39,7 @@ export default function StatusUpdateForm({
     setMessage(
       result.success
         ? { type: "success", text: "Durum güncellendi." }
-        : { type: "error", text: "Güncelleme başarısız." }
+        : { type: "error", text: result.error ?? "Güncelleme başarısız." }
     );
   }
 

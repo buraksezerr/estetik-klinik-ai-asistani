@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { supabaseServer } from "@/lib/supabase-server";
+import DeleteLeadButton from "@/components/admin/DeleteLeadButton";
 
 interface Lead {
   id: string;
@@ -227,12 +228,15 @@ export default async function AdminDashboard({
                         {formatRelativeTime(lead.created_at)}
                       </td>
                       <td className="px-6 py-4 text-right">
-                        <Link
-                          href={`/admin/lead/${lead.id}`}
-                          className="text-rose-400 hover:text-rose-600 text-xs font-medium transition-colors whitespace-nowrap"
-                        >
-                          Detay →
-                        </Link>
+                        <div className="flex items-center justify-end gap-3">
+                          <Link
+                            href={`/admin/lead/${lead.id}`}
+                            className="text-rose-400 hover:text-rose-600 text-xs font-medium transition-colors whitespace-nowrap"
+                          >
+                            Detay →
+                          </Link>
+                          <DeleteLeadButton leadId={lead.id} />
+                        </div>
                       </td>
                     </tr>
                   );
